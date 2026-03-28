@@ -25,3 +25,6 @@ Thumbs.db
 
 # Vite
 *.local
+
+# .pem files for SSH keys
+*.pem
