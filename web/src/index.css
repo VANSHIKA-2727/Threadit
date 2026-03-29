@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-paper: #f2eee9;
+  --color-surface: #ffffff;
+  --color-foreground: #1f2933;
+  --color-muted: #6b7280;
+  --color-border: #e8e4df;
+  --color-accent: #e85a34;
+  --color-accent-soft: #f9b8af;
+  --color-accent-hover: #d14d2c;
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply min-h-screen font-sans bg-white text-gray-900 transition-all duration-200;
+    line-height: 1.6;
+  }
+
+  .dark body {
+    @apply bg-[#0f0f0f] text-gray-100;
+  }
+}
