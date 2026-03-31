@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bell, MessageCircle, Menu, X } from "lucide-react";
-import { HiMagnifyingGlass, HiUser, HiArrowRightOnRectangle, HiSparkles } from "react-icons/hi2";
+import { HiMagnifyingGlass, HiUser, HiArrowRightOnRectangle } from "react-icons/hi2";
+import Logo from "./Logo";
 import { useAuth } from "../context/AuthContext";
 import ThemeToggle from "./ThemeToggle";
 import ChatPanel from "./ChatPanel";
@@ -104,10 +105,18 @@ export default function Navbar() {
         >
           {mobileOpen ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
         </button>
-        <Link to="/home" className="flex items-center gap-2 select-none">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent">
-            <HiSparkles size={16} className="text-white" />
-          </div>
+        <Link
+          to="/home"
+          className="flex items-center gap-2 select-none"
+          aria-label="Threadit home"
+        >
+          <motion.span
+            whileHover={{ scale: 1.05, rotate: -2 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex"
+          >
+            <Logo size={32} className="text-gray-900 dark:text-white" />
+          </motion.span>
           <span className="hidden text-base font-semibold tracking-[0.02em] text-gray-900 dark:text-gray-100 sm:block">
             Threadit
           </span>
